@@ -1,0 +1,19 @@
+{
+  "name": "campus-olx",
+  "version": "1.0.0",
+  "description": "OLX clone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "m@nish",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.4.1"
+  }
+}
