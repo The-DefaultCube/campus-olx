@@ -1,0 +1,28 @@
+<%-include("partials/header", {
+	pageTitle: "Welcome to Campus OLX", //Title of Page
+	pageFavicon: "", //href Link to favicon
+	cssFiles: ["css/home.css"] //href link to css files
+})-%>
+
+<%-include("components/navbar")-%>
+
+<h4 class="mt-4">Items Currently on SALE !</h4>
+<hr />
+<!-- Product cards -->
+<div class="container">
+	<div class="item-card row row-cols-1 row-cols-md-3 g-4">
+		
+		<%items.forEach((item)=>{%>
+			<%-include("components/itemCard", {
+			itemName : item.name,
+			itemPrice : item.price,
+			itemDescription: item.description,
+			})-%>
+		<%})%>
+
+	</div>
+</div>
+
+<%-include("partials/footer", {
+	jsFiles: [""] //Javacsript Files
+})-%>

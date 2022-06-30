@@ -1,0 +1,54 @@
+<%-include("partials/header", {
+	pageTitle: "Sell Item/s", //Title of Page
+	pageFavicon: "", //href Link to favicon
+	cssFiles: ["css/sell.css"] //href link to css files
+})-%>
+
+<div class="container">
+	<h1 class="">What do you want to sell ?</h1>
+
+	<form action="/sell" method="post">
+		<div class="mb-3">
+			<label for="itemName" class="form-label">Name of Item</label>
+			<input
+				type="text"
+				class="form-control"
+				id="itemName"
+				name="item_name"
+				autocomplete="off"
+				required
+				autofocus
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="itemPrice" class="form-label">Enter the Price</label>
+			<input
+				type="number"
+				min="10"
+				max="10000"
+				step="10"
+				class="form-control"
+				id="itemPrice"
+				name="item_price"
+				autocomplete="off"
+				required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="itemDesc">Description</label>
+			<textarea
+				class="form-control"
+				id="itemDesc"
+				rows="8"
+				placeholder="Write Description of Item Here ..."
+				name="item_description"
+				required
+			></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary mb-5" name="submit_item">Sell It</button>
+	</form>
+</div>
+
+<%-include("partials/footer", {
+	jsFiles: [""] //Javacsript Files
+})-%>
