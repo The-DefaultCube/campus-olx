@@ -7,7 +7,7 @@
 <div class="container">
 	<h1 class="">What do you want to sell ?</h1>
 
-	<form action="/sell" method="post">
+	<form action="/sell" method="post" enctype="multipart/form-data">
 		<div class="mb-3">
 			<label for="itemName" class="form-label">Name of Item</label>
 			<input
@@ -45,6 +45,7 @@
 				required
 			></textarea>
 		</div>
+		<input type="file" name="itemImage" accept="image/*"/>
 		<button type="submit" class="btn btn-primary mb-5" name="submit_item">Sell It</button>
 	</form>
 </div>
