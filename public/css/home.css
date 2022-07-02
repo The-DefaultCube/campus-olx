@@ -2,6 +2,10 @@
 .container {
 	margin-bottom: 100px;
 }
+.item-card-link {
+	text-decoration: inherit;
+	color: inherit;
+}
 
 footer {
 	position: fixed;

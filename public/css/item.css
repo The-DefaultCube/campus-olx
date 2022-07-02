@@ -1,0 +1,6 @@
+p.item-description {
+	padding: 2rem;
+	background-color: rgb(250, 250, 250);
+	border-radius: 20px;
+	white-space: pre-wrap;
+}

@@ -74,7 +74,24 @@ app.get("/", (req, res) => {
 app.get("/profile", (req, res) => {});
 
 //Individual Item Page
-app.get("/item/:itemId", (req, res) => {});
+app.get("/item/:itemId", (req, res) => {
+  const itemId = req.params.itemId;
+  //find the item
+  Item.findOne({_id: itemId}, (err, foundItem)=>{
+    if(!err)
+    {
+      if(foundItem)
+        res.render("item", {item: foundItem});
+      else
+        res.send("Sorry Item Doesn,t Exist");
+    }
+    else
+    {
+      console.log("error retrieving item"+err);
+      res.send("Sorry Item Doesn,t Exist"); 
+    }
+  })
+});
 
 //Selling Page
 app.get("/sell", (req, res) => {
