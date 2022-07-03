@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light sticky-top">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">
 			<img
@@ -34,7 +34,7 @@
 					<a class="nav-link">My Profile</a>
 				</li>
 			</ul>
-			<form class="d-flex me-3" role="search">
+			<!-- <form class="d-flex me-3" role="search">
 				<input
 					class="form-control me-2"
 					type="search"
@@ -42,6 +42,11 @@
 				/>
 				<button class="btn btn-outline-success" type="submit">
 					Search
+				</button>
+			</form> -->
+			<form class="d-flex me-3" method="POST" action="/logout">
+				<button class="btn btn-danger" type="submit">
+					Logout
 				</button>
 			</form>
 			<form class="d-flex me-2" method="get" action="/sell">

@@ -6,6 +6,12 @@
 	text-decoration: inherit;
 	color: inherit;
 }
+.item-card-link:hover {
+	color: inherit;
+}
+.selling-date {
+	float: right;
+}
 
 footer {
 	position: fixed;

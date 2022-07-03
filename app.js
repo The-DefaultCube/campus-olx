@@ -75,6 +75,7 @@ const itemSchema = new mongoose.Schema({
   price: Number,
   description: String,
   imageUrl: String,
+  sellerId: String,
   sellerName: String,
   creationTime: String,
 });
@@ -242,6 +243,7 @@ app.post("/sell", (req, res) => {
       imageUrl:
         "https://res.cloudinary.com/dwytcg1ux/image/upload/q_30/v1656751976/campusOLX_items/default_item_x6mw8w.jpg", //string
       sellerName: req.user.name,
+      sellerId: req.user.id,
       creationTime: item_creation_time,
     });
     newItem.save((error) => {
@@ -271,6 +273,7 @@ app.post("/sell", (req, res) => {
             description: req.body.item_description, //string
             imageUrl: result.url,
             sellerName: req.user.name,
+            sellerId: req.user.id,
             creationTime: item_creation_time,
           });
           newItem.save((error) => {
@@ -285,6 +288,14 @@ app.post("/sell", (req, res) => {
       }
     );
   }
+});
+
+//logout --DONE
+app.post('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 
 //css class >> abc-def
