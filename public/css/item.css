@@ -1,6 +1,68 @@
-p.item-description {
-	padding: 2rem;
-	background-color: rgb(250, 250, 250);
+/*
+#00C5D2
+#FFCB00
+#868FAC
+#FEF9A7
+#F6FBF4
+#293462
+*/
+body {
+	background-color: #f6fbf4;
+}
+.item-image {
+	height: 300px;
+	background-color: #111111;
+	border-radius: 10px;
+}
+
+.item-name {
+	color: black;
+	font-size: 1.6rem;
+	text-decoration: underline #ffcb00 solid 5px;
+	font-size: 2.5rem;
+}
+.my-card {
+	background: white;
 	border-radius: 20px;
+	box-shadow: 10px 10px 20px 4px rgba(0,197,210,0.20);
+}
+
+img {
+	height: 100%;
+}
+.horizontal-line {
+	border-top: 4px solid #868fac;
+}
+p.item-description {
+	color: #293462;
+	padding: 1rem;
+	background-color: rgb(250, 250, 250);
+	border-radius: 10px;
 	white-space: pre-wrap;
+}
+
+.seller-card img {
+	width: 80px;
+	border-radius: 50%;
+	border: 4px solid #ffcb00;
+	padding: 2px;
+}
+.seller-card h5 {
+	color: #868fac;
+}
+.seller-card h4 {
+	color: #293462;
+}
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+a: hover {
+	text-decoration: inherit;
+}
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }

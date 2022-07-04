@@ -170,10 +170,20 @@ app.get("/login", (req, res) => {
 //HOME PAGE --DONE
 app.get("/", (req, res) => {
   if (req.isAuthenticated()) {
-    //try to add filter here
-    Item.find({}, (err, foundItems) => {
+    //added filter here
+    const filter = [
+      "name",
+      "price",
+      "description",
+      "imageUrl",
+      "sellerName",
+      "creationTime",
+    ];
+    Item.find({}, filter, { sort: { _id: -1 } }, (err, foundItems) => {
       if (!err) {
         // console.log(typeof(foundItems[0].price))//number
+        // foundItems.sort()
+        // console.log(foundItems);
         res.render("home", { items: foundItems });
       } else console.log("error retrieving all items");
     });
@@ -189,18 +199,35 @@ app.get("/profile/:profileId", (req, res) => {
     const userId = req.params.profileId;
     let userItems = [];
     //see if user has any items on sell
-    Item.find({ sellerId: userId }, (err, foundItems) => {
-      if (!err && foundItems) userItems = foundItems;
-      else console.log("no items on sale by user : " + userId);
-    });
+    const filter = [
+      "name",
+      "price",
+      "description",
+      "imageUrl",
+      "sellerName",
+      "creationTime",
+    ];
 
     User.findOne({ _id: userId }, (err, foundUser) => {
       if (!err) {
         if (foundUser) {
-          res.render("profile", {
-            user: foundUser,
-            items: userItems,
-          });
+          Item.find(
+            { sellerId: userId },
+            filter,
+            { sort: { _id: -1 } },
+            (err, foundItems) => {
+              if (!err && foundItems) {
+                userItems = foundItems;
+                res.render("profile", {
+                  user: foundUser,
+                  items: userItems,
+                });
+              } else {
+                console.log("no items on sale by user : " + userId);
+                res.render("profile", { user: foundUser, items: userItems });
+              }
+            }
+          );
         } else {
           res.send("User not exixt");
         }
@@ -217,7 +244,7 @@ app.get("/profile/:profileId", (req, res) => {
 //Profile Edit Page --DONE
 app.get("/editprofile", (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("editprofile", {name: req.user.name, email: req.user.email});
+    res.render("editprofile", { name: req.user.name, email: req.user.email });
   } else {
     res.redirect("/login");
   }
@@ -230,8 +257,27 @@ app.get("/item/:itemId", (req, res) => {
   if (req.isAuthenticated()) {
     Item.findOne({ _id: itemId }, (err, foundItem) => {
       if (!err) {
-        if (foundItem) res.render("item", { item: foundItem });
-        else res.send("Sorry Item Doesn,t Exist");
+        //find its seller
+        let seller = { name: "none", email: "none@123", _id: "123456" };
+        // console.log(foundItem.sellerId);
+        User.findOne(
+          { _id: foundItem.sellerId },
+          ["name", "email"],
+          (err, foundSeller) => {
+            if (!err && foundSeller) {
+              // console.log(seller);
+              if (foundItem)
+                res.render("item", {
+                  item: foundItem,
+                  itemSeller: foundSeller,
+                });
+              else res.send("Sorry Item Doesn,t Exist");
+            } else {
+              console.log("Couldn't find seller");
+              res.render("item", { item: foundItem, itemSeller: seller });
+            }
+          }
+        );
       } else {
         console.log("error retrieving item :" + err);
         res.send("Sorry Item Doesn,t Exist");
@@ -251,6 +297,7 @@ app.get("/sell", (req, res) => {
   }
 });
 
+app.get("/wishlist", (req, res) => {});
 /*--------------------------------------------------------------------------*/
 //Sell Items --DONE
 app.post("/sell", (req, res) => {
@@ -324,25 +371,25 @@ app.post("/sell", (req, res) => {
   }
 });
 
-//Edit user profile
+//Edit user profile --DONE
 app.post("/editprofile", (req, res) => {
   userId = req.user.id;
   //find by id in batabase and update
   // console.log(req.body);
-  User.findOne({_id: userId}, (err, foundUser)=>{
-    if(!err && foundUser){
+  User.findOne({ _id: userId }, (err, foundUser) => {
+    if (!err && foundUser) {
       foundUser.course = req.body.course;
-      foundUser.department= req.body.department;
-      foundUser.currentYear= req.body.current_year;
-      foundUser.hostelName= req.body.hostel_name;
-      foundUser.roomNo= req.body.room_no;
-      foundUser.contactNo= req.body.contact_no;
-      foundUser.save((error)=>{
-        if(!error) {
+      foundUser.department = req.body.department;
+      foundUser.currentYear = req.body.current_year;
+      foundUser.hostelName = req.body.hostel_name;
+      foundUser.roomNo = req.body.room_no;
+      foundUser.contactNo = req.body.contact_no;
+      foundUser.save((error) => {
+        if (!error) {
           console.log("details updated successfully");
-          res.redirect("/profile/"+userId);
+          res.redirect("/profile/" + userId);
         } else {
-          console.log("Couldn't Update");
+          console.log("Couldn't Update Profile");
           res.redirect("/editprofile");
         }
       });

@@ -45,8 +45,12 @@
 				required
 			></textarea>
 		</div>
-		<input type="file" name="itemImage" accept="image/*"/>
-		<button type="submit" class="btn btn-primary mb-5" name="submit_item">Sell It</button>
+		<div class="mb-3">
+  			<label for="formFile" class="form-label">Upload Product Image</label>
+  			<input class="form-control" type="file" id="formFile" name="itemImage" accept="image/*"/>
+		</div>
+
+		<button type="submit" class="btn btn-primary mb-5 btn-lg" name="submit_item">Sell It</button>
 	</form>
 </div>
 
