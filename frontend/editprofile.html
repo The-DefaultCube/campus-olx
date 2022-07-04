@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Welcome</title>
+
+		<!-- CSS Files -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="editprofile.css" />
+	</head>
+	<body>
+		<!-- Edit Profile Page -->
+		<div class="container bg-light">
+			<div class="h2 mt-5">Edit my Profile</div>
+			<hr class="horizontal-line" />
+
+			<div class="row user-info-card pb-4 mb-4">
+				<div class="col-md text-center pb-4">
+					<img
+						src="img.png"
+						class="profile-image"
+						alt="profile Image"
+					/>
+					<h4 class="">User Name Here</h4>
+					<h6 class="">abc-email@iitg.ac.in</h6>
+				</div>
+			</div>
+			<!-- form here -->
+			<div class="row user-info-card pb-4 mb-5">
+				<form action="/editprofile" method="POST" class="p-4">
+					<div class="mb-3">
+						<label for="labelCourse" class="form-label mb-1"
+							>Course :</label
+						>
+						<select
+							class="form-select form-label"
+							name="course"
+							id="labelCourse"
+						>
+							<option selected value="Not Provided">
+								Select
+							</option>
+							<option value="B.Tech">B.Tech</option>
+							<option value="M.Tech">M.Tech</option>
+							<option value="Phd">Phd</option>
+						</select>
+					</div>
+
+					<div class="mb-3">
+						<label for="labelDept" class="form-label mb-1"
+							>Department :</label
+						>
+						<select
+							class="form-select form-label"
+							name="department"
+							id="labelDept"
+						>
+							<option selected value="Not Provided">
+								Select
+							</option>
+							<option value="CSE">CSE</option>
+							<option value="M&C">M&C</option>
+							<option value="ECE">ECE</option>
+							<option value="EEE">EEE</option>
+							<option value="ME">ME</option>
+							<option value="CE">CE</option>
+							<option value="CL">CL</option>
+						</select>
+					</div>
+
+					<div class="mb-3">
+						<label for="labelYr" class="form-label mb-1"
+							>Current Year :</label
+						>
+						<select
+							class="form-select"
+							name="current_year"
+							id="labelYr"
+						>
+							<option selected value="Not Provided">
+								Select
+							</option>
+							<option value="1st">1st</option>
+							<option value="2nd">2nd</option>
+							<option value="3rd">3rd</option>
+							<option value="4th">4th</option>
+						</select>
+					</div>
+
+					<div class="mb-3">
+						<label for="labelHostel" class="form-label mb-1"
+							>Hostel :</label
+						>
+						<select
+							class="form-select form-label"
+							name="hostel_name"
+							id="labelHostel"
+						>
+							<option selected value="Not Provided">
+								Select
+							</option>
+							<option value="Brahmaputra">Brahmaputra</option>
+							<option value="Kameng">Kameng</option>
+							<option value="Manas">Manas</option>
+							<option value="Lohit">Lohit</option>
+							<option value="Umiam">Umiam</option>
+							<option value="Barak">Barak</option>
+							<option value="Disang">Disang</option>
+						</select>
+					</div>
+
+					<div class="mb-3">
+						<label for="labelRoom" class="form-label"
+							>Room Number :</label
+						>
+						<input
+							type="text"
+							maxlength="8"
+							class="form-control"
+							id="labelRoom"
+							name="room_no"
+							autocomplete="off"
+							placeholder="Enter your Room Number Here ..."
+						/>
+					</div>
+
+					<div class="mb-3">
+						<label for="labelCont" class="form-label"
+							>Contact Number :</label
+						>
+						<input
+							type="tel"
+							maxlength="10"
+							class="form-control"
+							id="labelCont"
+							name="contact_no"
+							autocomplete="off"
+							placeholder="eg : 1234567890"
+							pattern="[0-9]{10}"
+						/>
+					</div>
+
+					<!-- <div class="mb-3">
+						<label for="formFile" class="form-label"
+							>Default file input example</label
+						>
+						<input class="form-control" type="file" id="formFile" />
+					</div> -->
+
+					<button
+						type="submit"
+						class="btn btn-primary btn-lg mb-2 mt-4"
+						name="submit_item"
+					>
+						Update My Details
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- JS files -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

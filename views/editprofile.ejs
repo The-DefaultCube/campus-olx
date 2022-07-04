@@ -1,0 +1,141 @@
+<%-include("partials/header", {
+	pageTitle: "Edit my Profile", //Title of Page
+	pageFavicon: "", //href Link to favicon
+	cssFiles: ["../css/editprofile.css"] //href link to css files
+})-%>
+
+<!-- Edit Profile Page -->
+<div class="container bg-light">
+	<div class="h2 mt-5">Edit my Profile</div>
+	<hr class="horizontal-line" />
+
+	<div class="row user-info-card pb-4 mb-4">
+		<div class="col-md text-center pb-4">
+			<img src="../img/img.png" class="profile-image" alt="profile Image" />
+			<h4 class=""><%=name%></h4>
+			<h6 class=""><%=email%></h6>
+		</div>
+	</div>
+	<!-- form here -->
+	<div class="row user-info-card pb-4 mb-5">
+		<form action="/editprofile" method="POST" class="p-4">
+			<div class="mb-3">
+				<label for="labelCourse" class="form-label mb-1"
+					>Course :</label
+				>
+				<select
+					class="form-select form-label"
+					name="course"
+					id="labelCourse"
+				>
+					<option selected value="Not Provided">Select</option>
+					<option value="B.Tech">B.Tech</option>
+					<option value="M.Tech">M.Tech</option>
+					<option value="Phd">Phd</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label for="labelDept" class="form-label mb-1"
+					>Department :</label
+				>
+				<select
+					class="form-select form-label"
+					name="department"
+					id="labelDept"
+				>
+					<option selected value="Not Provided">Select</option>
+					<option value="CSE">CSE</option>
+					<option value="M&C">M&C</option>
+					<option value="ECE">ECE</option>
+					<option value="EEE">EEE</option>
+					<option value="ME">ME</option>
+					<option value="CE">CE</option>
+					<option value="CL">CL</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label for="labelYr" class="form-label mb-1"
+					>Current Year :</label
+				>
+				<select class="form-select" name="current_year" id="labelYr">
+					<option selected value="Not Provided">Select</option>
+					<option value="1st">1st</option>
+					<option value="2nd">2nd</option>
+					<option value="3rd">3rd</option>
+					<option value="4th">4th</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label for="labelHostel" class="form-label mb-1"
+					>Hostel :</label
+				>
+				<select
+					class="form-select form-label"
+					name="hostel_name"
+					id="labelHostel"
+				>
+					<option selected value="Not Provided">Select</option>
+					<option value="Brahmaputra">Brahmaputra</option>
+					<option value="Kameng">Kameng</option>
+					<option value="Manas">Manas</option>
+					<option value="Lohit">Lohit</option>
+					<option value="Umiam">Umiam</option>
+					<option value="Barak">Barak</option>
+					<option value="Disang">Disang</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label for="labelRoom" class="form-label">Room Number :</label>
+				<input
+					type="text"
+					maxlength="8"
+					class="form-control"
+					id="labelRoom"
+					name="room_no"
+					autocomplete="off"
+					placeholder="Enter your Room Number Here ..."
+				/>
+			</div>
+
+			<div class="mb-3">
+				<label for="labelCont" class="form-label"
+					>Contact Number :</label
+				>
+				<input
+					type="tel"
+					maxlength="10"
+					class="form-control"
+					id="labelCont"
+					name="contact_no"
+					autocomplete="off"
+					placeholder="eg : 1234567890"
+					pattern="[0-9]{10}"
+				/>
+			</div>
+
+			<!-- <div class="mb-3">
+						<label for="formFile" class="form-label"
+							>Default file input example</label
+						>
+						<input class="form-control" type="file" id="formFile" />
+					</div> -->
+
+			<button
+				type="submit"
+				class="btn btn-primary btn-lg mb-2 mt-4"
+				name="update_profile"
+			>
+				Update My Details
+			</button>
+		</form>
+	</div>
+</div>
+
+
+<%-include("partials/footer", {
+	jsFiles: [ ] //Javacsript Files
+})-%>

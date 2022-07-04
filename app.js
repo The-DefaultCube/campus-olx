@@ -217,7 +217,7 @@ app.get("/profile/:profileId", (req, res) => {
 //Profile Edit Page --DONE
 app.get("/editprofile", (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("editprofile");
+    res.render("editprofile", {name: req.user.name, email: req.user.email});
   } else {
     res.redirect("/login");
   }
@@ -252,6 +252,7 @@ app.get("/sell", (req, res) => {
 });
 
 /*--------------------------------------------------------------------------*/
+//Sell Items --DONE
 app.post("/sell", (req, res) => {
   //create new item
   //add user who posted and date/time of post
@@ -325,8 +326,30 @@ app.post("/sell", (req, res) => {
 
 //Edit user profile
 app.post("/editprofile", (req, res) => {
-  user_id = req.user.id;
+  userId = req.user.id;
   //find by id in batabase and update
+  // console.log(req.body);
+  User.findOne({_id: userId}, (err, foundUser)=>{
+    if(!err && foundUser){
+      foundUser.course = req.body.course;
+      foundUser.department= req.body.department;
+      foundUser.currentYear= req.body.current_year;
+      foundUser.hostelName= req.body.hostel_name;
+      foundUser.roomNo= req.body.room_no;
+      foundUser.contactNo= req.body.contact_no;
+      foundUser.save((error)=>{
+        if(!error) {
+          console.log("details updated successfully");
+          res.redirect("/profile/"+userId);
+        } else {
+          console.log("Couldn't Update");
+          res.redirect("/editprofile");
+        }
+      });
+    } else {
+      res.redirect("/editprofile");
+    }
+  });
 });
 
 //logout --DONE

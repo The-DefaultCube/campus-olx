@@ -1,2 +1,18 @@
-2.design edit profile page
-3.set edit profile route and complete it
+1.design item pages and a link to seller profile+contact and whatsapp number
+
+2.my WIshlist page
+
+3.owner can delete its item/mark as sold
+
+
+
+x.comments in item
+
+
+GOALS :
+1.modern ui --DONE
+2.Outlook Auth --DONE
+3.Buy and sell --PARTIAL
+4.Seller Profile + Stats/comments --PARTIAL
+5.Search and Filter --NILL
+6.Prod. details + seller details--PARTIAL
