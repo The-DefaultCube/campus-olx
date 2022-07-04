@@ -458,6 +458,19 @@ app.post("/filter", (req, res) => {
   }
 });
 
+app.post("/sold/:itemId", (req, res)=>{
+  const itemId = req.params.itemId;
+  Item.findByIdAndDelete(itemId, (err)=>{
+    if(!err){
+      res.redirect('/');
+    }
+    else{
+      console.log("unable to delete item");
+      res.redirect('/item/'+itemId);
+    }
+
+  })
+})
 //css class >> abc-def
 //post req variables >> abc_def
 //js and ejs var >> abcDef

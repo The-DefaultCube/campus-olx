@@ -30,7 +30,7 @@
 			</a>
 			<% if (markAsSold) { -%>
 			<div class="seller-card my-card text-center mt-4 p-4">
-				<form action="/sold" method="POST">
+				<form action="/sold/<%=item._id%>" method="POST">
 					<button class="btn btn-lg btn-success">
 						☑ SOLD !!
 					</button>
