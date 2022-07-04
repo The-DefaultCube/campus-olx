@@ -1,22 +1,11 @@
 <%-include("partials/header", {
 	pageTitle: "Welcome to Campus OLX", //Title of Page
 	pageFavicon: "", //href Link to favicon
-	cssFiles: ["css/home.css"] //href link to css files
+	cssFiles: ["../css/home.css"] //href link to css files
 })-%>
 
-<%-include("components/navbar")-%>
 
-<div class="row">
-<div class="mt-4 mb-2 h4 p-2 col">🛒 Items Currently on SALE !</div>
-<div class="my-filter me-4 float-end col-auto mt-4">
-	<form action="/filter" method="POST" class="row">
-		<input type="number" name="min" class="form-control float-start" required>
-		<input type="number" name="max" class="form-control float-start" required>
-		<button type="submit" class="btn btn-success float-end">GO</button>
-	</form>
-</div>
-</div>
-
+<h4 class="mt-4">💖 My Wishlist</h4>
 <hr class="horizontal-line" />
 <!-- Product cards -->
 <div class="container">

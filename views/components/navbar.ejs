@@ -1,15 +1,15 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-custom-color sticky-top">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">
-			<img
+		<a class="navbar-brand" href="/">
+			<!-- <img
 				src="img/img.png"
 				width="30"
 				height="30"
 				alt="Brand Image"
 				class="d-inline-block align-text-top"
-			/>
-			Campus OLX</a
+			/> -->
+			🛍 Campus OLX</a
 		>
 		<button
 			class="navbar-toggler"
@@ -25,36 +25,27 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Home</a>
+					<a class="nav-link active" href="/wishlist">💖 My Wishlist</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Chats</a>
+					<a class="nav-link" href="/editprofile">📝 Edit my Profile</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link">My Profile</a>
-				</li>
+				
 			</ul>
-			<!-- <form class="d-flex me-3" role="search">
-				<input
-					class="form-control me-2"
-					type="search"
-					placeholder="Search"
-				/>
-				<button class="btn btn-outline-success" type="submit">
-					Search
-				</button>
-			</form> -->
-			<form class="d-flex me-3" method="POST" action="/logout">
+			
+			<form class="d-flex me-3 float-end" method="POST" action="/logout">
 				<button class="btn btn-danger" type="submit">
 					Logout
 				</button>
 			</form>
-			<form class="d-flex me-2" method="get" action="/sell">
+			<form class="d-flex me-2 float-end" method="get" action="/sell">
 				<button class="btn btn-warning" type="submit">
 					+ Sell Items
 				</button>
 			</form>
-			<form class="d-flex">
+			<span class="me-1 float-end">Hi <%=user.name%> !</span>
+			<form class="d-flex float-end">
+				<a href="/profile/<%=user._id%>">
 				<img
 					src="img/img.png"
 					width="40px"
@@ -62,7 +53,9 @@
 					style="border-radius: 50%"
 					alt="Profile Image"
 				/>
+				</a>
 			</form>
+			
 		</div>
 	</div>
 </nav>

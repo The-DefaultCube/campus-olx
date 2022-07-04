@@ -9,6 +9,18 @@
 body {
 	background: #f6fbf4;
 }
+.navbar-custom-color {
+	background: #fef9a7;
+}
+.horizontal-line {
+	border-top: 4px solid #868fac;
+}
+.my-filter form input {
+	width: 80px;
+}
+.my-filter form button {
+	width: 40px;
+}
 .container {
 	margin-bottom: 100px;
 }
@@ -59,4 +71,5 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	background: #fef9a7;
 }

@@ -1,7 +1,3 @@
-1.design item pages and a link to seller profile+contact and whatsapp number
-
-2.my WIshlist page
-
 3.owner can delete its item/mark as sold
 
 

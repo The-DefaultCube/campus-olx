@@ -94,6 +94,7 @@ const userSchema = new mongoose.Schema({
   hostelName: String,
   roomNo: String,
   contactNo: String,
+  wishlist: [String],
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -184,7 +185,7 @@ app.get("/", (req, res) => {
         // console.log(typeof(foundItems[0].price))//number
         // foundItems.sort()
         // console.log(foundItems);
-        res.render("home", { items: foundItems });
+        res.render("home", { items: foundItems, user: req.user });
       } else console.log("error retrieving all items");
     });
   } else {
@@ -297,7 +298,21 @@ app.get("/sell", (req, res) => {
   }
 });
 
-app.get("/wishlist", (req, res) => {});
+app.get("/wishlist", (req, res) => {
+  if (req.isAuthenticated()) {
+    // let users_wishlist = req.user.wishlit;
+    let users_wishlist = ["62c203989a8e8b20c1a33590"];
+    //query acc to array
+    Item.find({ _id: { $in: users_wishlist } }, (err, foundItems) => {
+      // console.log(foundItems);
+      if (!err) res.render("wishlist", { items: foundItems });
+      else console.log("Error in wishlist");
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
 /*--------------------------------------------------------------------------*/
 //Sell Items --DONE
 app.post("/sell", (req, res) => {
@@ -407,6 +422,30 @@ app.post("/logout", function (req, res, next) {
     }
     res.redirect("/");
   });
+});
+
+app.post("/filter", (req, res) => {
+  const min = parseInt(req.body.min, 10);
+  const max = parseInt(req.body.max, 10);
+  const curr_user = req.user;
+  if (min > max) {
+    res.redirect("/");
+  } else {
+    //find querry
+    const filter = [
+      "name",
+      "price",
+      "description",
+      "imageUrl",
+      "sellerName",
+      "creationTime",
+    ];
+    Item.find({price: {$gte: min, $lte: max}}, filter, { sort: { _id: -1 } }, (err, foundItems) => {
+      if (!err) {
+        res.render("home", { items: foundItems, user: curr_user });
+      } else console.log("error retrieving filtered items");
+    });
+  }
 });
 
 //css class >> abc-def
