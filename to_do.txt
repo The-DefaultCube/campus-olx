@@ -10,5 +10,5 @@ GOALS :
 2.Outlook Auth --DONE
 3.Buy and sell --PARTIAL
 4.Seller Profile + Stats/comments --PARTIAL
-5.Search and Filter --NILL
-6.Prod. details + seller details--PARTIAL
+5.Search and Filter --DONE
+6.Prod. details + seller details--DONE

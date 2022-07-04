@@ -267,15 +267,20 @@ app.get("/item/:itemId", (req, res) => {
           (err, foundSeller) => {
             if (!err && foundSeller) {
               // console.log(seller);
-              if (foundItem)
+              if (foundItem) {
+                let mark_as_sold = (req.user.email==foundSeller.email)?(true):(false);
+                // console.log(req.user._id + " "+ foundSeller._id + " "+mark_as_sold);
                 res.render("item", {
                   item: foundItem,
                   itemSeller: foundSeller,
+                  markAsSold: mark_as_sold, 
                 });
-              else res.send("Sorry Item Doesn,t Exist");
+              } else {
+                res.send("Sorry Item Doesn,t Exist");
+              }
             } else {
               console.log("Couldn't find seller");
-              res.render("item", { item: foundItem, itemSeller: seller });
+              res.render("item", { item: foundItem, itemSeller: seller, markAsSold: false });
             }
           }
         );
@@ -440,11 +445,16 @@ app.post("/filter", (req, res) => {
       "sellerName",
       "creationTime",
     ];
-    Item.find({price: {$gte: min, $lte: max}}, filter, { sort: { _id: -1 } }, (err, foundItems) => {
-      if (!err) {
-        res.render("home", { items: foundItems, user: curr_user });
-      } else console.log("error retrieving filtered items");
-    });
+    Item.find(
+      { price: { $gte: min, $lte: max } },
+      filter,
+      { sort: { _id: -1 } },
+      (err, foundItems) => {
+        if (!err) {
+          res.render("home", { items: foundItems, user: curr_user });
+        } else console.log("error retrieving filtered items");
+      }
+    );
   }
 });
 

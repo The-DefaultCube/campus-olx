@@ -28,6 +28,16 @@
 				<h5><%=itemSeller.email%></h5>
 			</div>
 			</a>
+			<% if (markAsSold) { -%>
+			<div class="seller-card my-card text-center mt-4 p-4">
+				<form action="/sold" method="POST">
+					<button class="btn btn-lg btn-success">
+						☑ SOLD !!
+					</button>
+				</form>
+			</div>	
+			<% } %>
+			
 		</div>
 	</div>
 
