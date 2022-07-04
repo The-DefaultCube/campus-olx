@@ -1,0 +1,98 @@
+<%-include("partials/header", {
+	pageTitle: "User Profile", //Title of Page
+	pageFavicon: "", //href Link to favicon
+	cssFiles: ["../css/profile.css"] //href link to css files
+})-%>
+
+<!-- check null value -->
+<% if (!user.course) { -%>
+	<%user.course = "Not Provided"%>			
+<% } -%>
+<% if (!user.department) { -%>
+	<%user.department = "Not Provided"%>			
+<% } -%>
+<% if (!user.currentYear) { -%>
+	<%user.currentYear = "Not Provided"%>			
+<% } -%>
+<% if (!user.hostelName) { -%>
+	<%user.hostelName = "Not Provided"%>			
+<% } -%>
+<% if (!user.roomNo) { -%>
+	<%user.roomNo = "Not Provided"%>			
+<% } -%>
+<% if (!user.contactNo) { -%>
+	<%user.contactNo = "Not Provided"%>			
+<% } -%>
+
+<!-- Profile Page of User View Only -->
+<div class="container bg-light">
+	<div class="h2 mt-5">User Profile</div>
+	<hr class="horizontal-line" />
+
+	<div class="row user-info-card pb-4">
+		<div class="col-md-5 text-center pb-4">
+			<img
+				src="../img/img.png"
+				class="profile-image"
+				alt="profile Image"
+			/>
+			<h4 class=""><%=user.name%></h4>
+			<h6 class=""><%=user.email%></h6>
+		</div>
+		
+		<div class="col-md">
+			<div class="row">
+				<div class="col ps-4 mt-5">
+					<h6>Course :</h6>
+					<p><%=user.course%></p>
+				</div>
+				<div class="col ps-4 mt-5">
+					<h6>Department :</h6>
+					<p><%=user.department%></p>
+				</div>
+				<div class="col ps-4 mt-5">
+					<h6>Current Year :</h6>
+					<p><%=user.currentYear%></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col ps-4 mt-5">
+					<h6>Hostel Name :</h6>
+					<p><%=user.hostelName%></p>
+				</div>
+				<div class="col ps-4 mt-5">
+					<h6>Room No. :</h6>
+					<p><%=user.roomNo%></p>
+				</div>
+				<div class="col ps-4 mt-5">
+					<h6>Contact No. :</h6>
+					<p><%=user.contactNo%></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- items on sale by user -->
+	<div class="h2 mt-5">Items On Sale</div>
+	<hr class="horizontal-line" />
+	<div class="container">
+		<div class="item-card row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+			<%items.forEach((item)=>{%>
+				<%-include("components/itemCard", {
+				itemId : item._id,
+				itemName : item.name,
+				itemPrice : item.price,
+				itemDescription: item.description,
+				itemImageUrl: item.imageUrl,
+				itemSellerName: item.sellerName,
+				itemCreationTime: item.creationTime	
+				})-%>
+			<%})%>
+		</div>
+	</div>
+	
+</div>
+
+<%-include("partials/footer", {
+	jsFiles: [ ] //Javacsript Files
+})-%>

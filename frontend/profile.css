@@ -1,0 +1,35 @@
+/*
+#00C5D2
+#FFCB00
+#868FAC
+#FEF9A7
+#F6FBF4
+#293462
+*/
+body {
+	background: #f6fbf4;
+}
+.horizontal-line {
+	border-top: 4px solid #868fac;
+}
+.user-info-card {
+	background: white;
+	border-radius: 20px;
+	box-shadow: 10px 10px 20px 4px rgba(0,197,210,0.20);
+
+}
+.user-info-card h4,p {
+	color: #293462;
+}
+.user-info-card h6 {
+	color: #868fac;
+}
+
+.profile-image {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	width: 180px;
+	border-radius: 50%;
+	border: 6px solid #ffcb00;
+	padding: 2px;
+}

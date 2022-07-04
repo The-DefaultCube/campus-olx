@@ -1,0 +1,2 @@
+2.design edit profile page
+3.set edit profile route and complete it

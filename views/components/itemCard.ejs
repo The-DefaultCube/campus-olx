@@ -1,23 +1,22 @@
 <div class="col">
 	<a href="/item/<%=itemId%>" class="item-card-link">
-		<div class="card h-200">
+		<div class="card h-100">
 			<img
 				src="<%=itemImageUrl%>"
 				class="card-img-top"
-				width="100px"
-				height="100px"
+				height="250px"
 				alt="..."
 			/>
 			<div class="card-body">
 				<h5 class="card-title"><%=itemName%></h5>
-				<h5 class="card-title">Rs. : <%=itemPrice%> only</h5>
+				<h5 class="item-price">💲 <%=itemPrice%> ₹</h5>
 				<p class="card-text">
 					<%=itemDescription.substring(0,200)%> ...
 				</p>
-				<div class="bg-warning seller-info">
-					<span>By: <%=itemSellerName%></span>
-					<span class="selling-date">On: <%=itemCreationTime%></span>
-				</div>
+			</div>
+			<div class=" card-footer seller-info">
+				<small class="seller-name"><%=itemSellerName%></small>
+				<small class="selling-date"><%=itemCreationTime%></small>
 			</div>
 		</div>
 	</a>

@@ -87,11 +87,12 @@ const userSchema = new mongoose.Schema({
   email: String,
   name: String,
   //custom values that user can edit
+  profileImg: String,
   course: String,
   department: String,
+  currentYear: String,
   hostelName: String,
   roomNo: String,
-  profileImg: String,
   contactNo: String,
 });
 
@@ -181,10 +182,42 @@ app.get("/", (req, res) => {
   }
 });
 
-//User Profile Page
-app.get("/profile", (req, res) => {
+//User Profile Page --DONE
+//http://localhost:3000/profile/62c1f4b03b96af3ae421f087
+app.get("/profile/:profileId", (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("profile");
+    const userId = req.params.profileId;
+    let userItems = [];
+    //see if user has any items on sell
+    Item.find({ sellerId: userId }, (err, foundItems) => {
+      if (!err && foundItems) userItems = foundItems;
+      else console.log("no items on sale by user : " + userId);
+    });
+
+    User.findOne({ _id: userId }, (err, foundUser) => {
+      if (!err) {
+        if (foundUser) {
+          res.render("profile", {
+            user: foundUser,
+            items: userItems,
+          });
+        } else {
+          res.send("User not exixt");
+        }
+      } else {
+        res.send("User Not Found");
+        console.log(err);
+      }
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
+//Profile Edit Page --DONE
+app.get("/editprofile", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("editprofile");
   } else {
     res.redirect("/login");
   }
@@ -200,7 +233,7 @@ app.get("/item/:itemId", (req, res) => {
         if (foundItem) res.render("item", { item: foundItem });
         else res.send("Sorry Item Doesn,t Exist");
       } else {
-        console.log("error retrieving item" + err);
+        console.log("error retrieving item :" + err);
         res.send("Sorry Item Doesn,t Exist");
       }
     });
@@ -221,7 +254,7 @@ app.get("/sell", (req, res) => {
 /*--------------------------------------------------------------------------*/
 app.post("/sell", (req, res) => {
   //create new item
-  //add user who posted ans date/time of post
+  //add user who posted and date/time of post
   // console.log(req.user);
   const _now = new Date();
   const options = {
@@ -290,11 +323,19 @@ app.post("/sell", (req, res) => {
   }
 });
 
+//Edit user profile
+app.post("/editprofile", (req, res) => {
+  user_id = req.user.id;
+  //find by id in batabase and update
+});
+
 //logout --DONE
-app.post('/logout', function(req, res, next) {
-  req.logout(function(err) {
-    if (err) { return next(err); }
-    res.redirect('/');
+app.post("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
   });
 });
 
