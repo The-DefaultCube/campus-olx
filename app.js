@@ -523,9 +523,3 @@ app.post("/wishlist/:itemId",(req,res)=>{
     }
   });
 });
-//css class >> abc-def
-//post req variables >> abc_def
-//js and ejs var >> abcDef
-
-//post request as string only
-//_id vs id
