@@ -66,6 +66,9 @@ a: hover {
 	padding: 5px 10px 5px;
 	margin-bottom: 5px;
 }
+.comments-section {
+	margin-bottom: 300px;
+}
 footer {
 	position: fixed;
 	left: 0;

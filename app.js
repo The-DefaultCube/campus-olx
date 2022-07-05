@@ -271,17 +271,19 @@ app.get("/item/:itemId", (req, res) => {
               if (foundItem) {
                 let mark_as_sold = (req.user.email==foundSeller.email)?(true):(false);
                 // console.log(req.user._id + " "+ foundSeller._id + " "+mark_as_sold);
+                let alreadyInWishlist = req.user.wishlist.includes(itemId);
                 res.render("item", {
                   item: foundItem,
                   itemSeller: foundSeller,
-                  markAsSold: mark_as_sold, 
+                  markAsSold: mark_as_sold,
+                  fill: alreadyInWishlist 
                 });
               } else {
-                res.send("Sorry Item Doesn,t Exist");
+                res.send("Sorry Item Doesn't Exist");
               }
             } else {
               console.log("Couldn't find seller");
-              res.render("item", { item: foundItem, itemSeller: seller, markAsSold: false });
+              res.render("item", { item: foundItem, itemSeller: seller, markAsSold: false, fill: false });
             }
           }
         );

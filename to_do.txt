@@ -1,13 +1,69 @@
-x.fav button and useer can add fav
-
 x.deploy and deployment branch
 
 GOALS :
 1.modern ui --DONE
 2.Outlook Auth --DONE
 3.Buy and sell --DONE
-4.Seller Profile + Stats/comments --PARTIAL
-5.Search and Filter --DONE
+4.Seller Profile + wishlist/comments --DONE
+5.Price Filter --DONE
 6.Prod. details + seller details--DONE
 7.user management--DONE
 8.mark as sold--DONE
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CAMPUS OLX PROJECT - DEMO
+-----------------------------------------------------------------------
+Selling my 2yrs old laptop at cheap price
+Windows 11 Home
+Intel® Core™ i7-12700H (up to 4.7 GHz, 24 MB L3 cache, 14 cores, 20 threads) + NVIDIA® GeForce RTX™ 3050 Laptop GPU (4 GB)
+16 GB DDR4-3200 SDRAM (2 x 8 GB)
+1 TB PCIe® NVMe™ M.2 SSD (4x4 SSD)
+
+
+Brand new refurbished pro models with bill warranty 512 gb available
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
