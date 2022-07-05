@@ -61,13 +61,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /*-----------------------------DATABASE-------------------------------------*/
-// mongoose.connect(
-//   "mongodb+srv://admin-blog-website:" +
-//     process.env.MONGO_DB_PASSWORD +
-//     "@cluster0.ngpc9.mongodb.net/blogWebsiteDB"
-// );
 
-mongoose.connect("mongodb://localhost:27017/campusOLX");
+mongoose.connect("mongodb+srv://campus-olx-admin-manish:"+process.env.MONGO_DB_PASSWORD+"@cluster0.xohp4.mongodb.net/campusOLX");
+
+// mongoose.connect("mongodb://localhost:27017/campusOLX");
 
 //Items------------------------------------------
 const itemSchema = new mongoose.Schema({
@@ -120,7 +117,7 @@ passport.use(
     {
       clientID: process.env.OUTLOOK_CLIENT_ID,
       clientSecret: process.env.OUTLOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/outlook/olxclone", ////////////////////////////////////////////////////////////////////
+      callbackURL: "https://iitg-campus-olx.herokuapp.com/auth/outlook/olxclone", ////////////////////////////////////////////////////////////////////
       passReqToCallback: true,
     },
     function (req, accessToken, refreshToken, profile, done) {
