@@ -13,8 +13,11 @@ GOALS :
 -------------------------------------------------------------------------
 
 deploy to heroku
-
-
+----------------------
+connect mongodb server
+change auth urls
+update env vars
+done
 
 
 
