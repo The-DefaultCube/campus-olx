@@ -1,14 +1,14 @@
-3.owner can delete its item/mark as sold
-
-
+x.fav button and useer can add fav
 
 x.comments in item
-
+x.deploy and deployment branch
 
 GOALS :
 1.modern ui --DONE
 2.Outlook Auth --DONE
-3.Buy and sell --PARTIAL
+3.Buy and sell --DONE
 4.Seller Profile + Stats/comments --PARTIAL
 5.Search and Filter --DONE
 6.Prod. details + seller details--DONE
+7.user management--DONE
+8.mark as sold--DONE

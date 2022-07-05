@@ -78,6 +78,7 @@ const itemSchema = new mongoose.Schema({
   sellerId: String,
   sellerName: String,
   creationTime: String,
+  comments: [{commenter: String, comment: String}],
 });
 const Item = mongoose.model("Item", itemSchema);
 
@@ -259,11 +260,11 @@ app.get("/item/:itemId", (req, res) => {
     Item.findOne({ _id: itemId }, (err, foundItem) => {
       if (!err) {
         //find its seller
-        let seller = { name: "none", email: "none@123", _id: "123456" };
+        let seller = { name: "none", email: "none@123", _id: "123456", contactNo: "987654321" };
         // console.log(foundItem.sellerId);
         User.findOne(
           { _id: foundItem.sellerId },
-          ["name", "email"],
+          ["name", "email","contactNo"],
           (err, foundSeller) => {
             if (!err && foundSeller) {
               // console.log(seller);
@@ -471,6 +472,24 @@ app.post("/sold/:itemId", (req, res)=>{
 
   })
 })
+
+//comments
+app.post("/comment/:itemId", (req,res)=>{
+  const comm = {commenter: req.user.name, comment: req.body.comment};
+  // {commenter: String, comment: String}
+  const itemId = req.params.itemId;
+  Item.findOne({_id: itemId},(err, foundItem)=>{
+    if(!err && foundItem){
+      foundItem.comments.push(comm);
+      foundItem.save((err)=>{
+        if(!err){
+          res.redirect("/item/"+itemId);
+        }
+      })
+    }
+  })
+
+});
 //css class >> abc-def
 //post req variables >> abc_def
 //js and ejs var >> abcDef

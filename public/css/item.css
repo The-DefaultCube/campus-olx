@@ -60,6 +60,12 @@ a {
 a: hover {
 	text-decoration: inherit;
 }
+.comment-card {
+	background: #fffffe;
+	border-radius: 5px;
+	padding: 5px 10px 5px;
+	margin-bottom: 5px;
+}
 footer {
 	position: fixed;
 	left: 0;

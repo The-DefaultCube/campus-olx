@@ -32,12 +32,21 @@
 			<div class="seller-card my-card text-center mt-4 p-4">
 				<form action="/sold/<%=item._id%>" method="POST">
 					<button class="btn btn-lg btn-success">
-						☑ SOLD !!
+						🤑 SOLD !!
 					</button>
 				</form>
 			</div>	
-			<% } %>
-			
+			<% }  else { -%>
+			<div class="seller-card my-card text-center mt-4 p-4">
+				<a href="https://api.whatsapp.com/send?phone=+91<%=itemSeller.contactNo%>&text=Hi, I would Like to Buy <%=item.name%>">
+					<button class="btn btn-lg btn-primary">
+						💸 Make Offer !!
+					</button>
+				</a>
+			</div>	
+				
+			<% } -%>
+
 		</div>
 	</div>
 
@@ -45,8 +54,24 @@
 		<div class="col bg-light mt-5 mb-5">
 			<h3>Comments</h3>
 			<hr class="horizontal-line">
+			<!-- comment here -->
+			<% for (var i = item.comments.length-1; i >=0 ; i--) { -%>
+				<%-include("components/comment", {
+				commenterName : item.comments[i].commenter,
+				commentBody : item.comments[i].comment,
+				})-%>
+			<% } -%>
+			
+			<!-- loop -->
+			<form action="/comment/<%=item._id%>" method="POST">
+				<div class="input-group mb-3">
+				  <input type="text" name="comment" class="form-control" placeholder="Add Some Comment Here ..." required>
+				  <button class="btn btn-primary btn-lg" type="submit">😎 Make Comment.</button>
+				</div>
+			</form>
 		</div>
 	</div>
+	
 </div>
 
 
