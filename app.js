@@ -306,8 +306,9 @@ app.get("/sell", (req, res) => {
 
 app.get("/wishlist", (req, res) => {
   if (req.isAuthenticated()) {
-    // let users_wishlist = req.user.wishlit;
-    let users_wishlist = ["62c203989a8e8b20c1a33590"];
+    let users_wishlist = req.user.wishlist;
+    // console.log(users_wishlist);
+    // let users_wishlist = ["62c203989a8e8b20c1a33590"];
     //query acc to array
     Item.find({ _id: { $in: users_wishlist } }, (err, foundItems) => {
       // console.log(foundItems);
@@ -490,8 +491,39 @@ app.post("/comment/:itemId", (req,res)=>{
   })
 
 });
+
+//edit user wishlist 
+app.post("/wishlist/:itemId",(req,res)=>{
+  const itemId = req.params.itemId;
+  const userId = req.user._id;
+  User.findOne({_id: userId}, (err, foundUser)=>{
+    if(!err && foundUser){
+      const rm = foundUser.wishlist.indexOf(itemId);
+      if(rm > -1){
+        //delete and save
+        foundUser.wishlist.splice(rm,1);
+        foundUser.save((error)=>{
+          if(!error){
+            res.redirect("/item/"+itemId);
+          }
+        })
+      }else{
+        //add and save
+        foundUser.wishlist.push(itemId);
+        foundUser.save((error)=>{
+          if(!error){
+            res.redirect("/item/"+itemId);
+          }
+        });
+      }
+    }else {
+      res.send("error adding to wishlist");
+    }
+  });
+});
 //css class >> abc-def
 //post req variables >> abc_def
 //js and ejs var >> abcDef
 
 //post request as string only
+//_id vs id

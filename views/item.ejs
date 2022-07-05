@@ -18,8 +18,9 @@
 		<div class="col m-2"> 
 			<div class="item-price my-card text-center p-4">
 				<h2>💰 <%=item.price%> ₹</h2>
-				<span>Share </span>
-				<span>Wishlist</span>
+				<form method="POST" action="/wishlist/<%=item._id%>">
+					<button type="submit">Wishlist</button>
+				</form>
 			</div>
 			<a href="/profile/<%=itemSeller._id%>">
 			<div class="seller-card my-card text-center mt-4 p-4">

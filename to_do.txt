@@ -1,6 +1,5 @@
 x.fav button and useer can add fav
 
-x.comments in item
 x.deploy and deployment branch
 
 GOALS :
