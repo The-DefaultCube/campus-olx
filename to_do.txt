@@ -41,6 +41,38 @@ Intel® Core™ i7-12700H (up to 4.7 GHz, 24 MB L3 cache, 14 cores, 20 threads) 
 
 Brand new refurbished pro models with bill warranty 512 gb available
 
+Home page list all the item currently on sale
+with seller name and date/time of creation
+
+adding items to wishlist
+
+making public comments
+
+option to edit profile
+
+sell items
+
+filter items acc to price range
+
+option to make offer using whatsapp
+
+option to mark item as sold by the seller
+
+responsive ui *sort of :P
+
+login and logout
+
+DONE :)
+
+tech stach >> ejs,html,css,js
+used cloudinary for image upload and passport for auth
+
+bye :)
+
+
+
+
+
 
 
 
