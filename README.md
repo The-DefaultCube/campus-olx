@@ -2,7 +2,7 @@
 🛍 Campus OLX
 </h1>
 <p align="center">
-MongoDB, Express, EJS, Node.js
+<b>MongoDB | Express | EJS | Node</b>
 </p>
 
 > Campus OLX is an online platform that allows users to buy and sell old items within the campus.
@@ -62,7 +62,33 @@ EXPRESS_SESSION_SECRET="YOUR_EXPRESS_SESSION_SECRET"
 MONGO_DB_PASSWORD="YOUR_MONGO_DB_PASSWORD"
 ```
 
-## 🖼️ Screen-shots
+## 🖼️ Screenshots
+<table>
+  <tr>
+    <td><b>Home Page</b></td>
+    <td><b>Item Page</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/home_page.jpg" ></td>
+    <td><img src="screenshots/product_page.jpg" ></td>
+  </tr>
+  
+  <tr>
+    <td><b>Seller-Info Page</b></td>
+    <td><b>Selling Items Page</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/sellerInfo_page.jpg" ></td>
+    <td><img src="screenshots/selling_page.jpg" ></td>
+  </tr>
+  
+  <tr>
+    <td><b>Wishlist Page</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/wishlist_page.jpg" ></td>
+  </tr>
+</table>
 
 
 ## 📩 Contact
