@@ -12,7 +12,14 @@ This project is deployed on [Heroku](https://iitg-campus-olx.herokuapp.com/) or
 Check out its Working Proof [here.](https://drive.google.com/file/d/1iIIowl7md2BPDr3LZegH_OXWRtx97-CZ/view?usp=sharing)
 
 ## 🕵️‍♀️ About the Project
-Project description
+**Problem Description :**
+
+Someone has completed his/her degree and is going to leave campus but don't know what to do with the personal belongings like cycle, mattress, electric Kettle etc or there is someone who is new in the campus but don't want to spend a lot of money on buying a new cycle. The current situation is that every student receives a lot of e-mails regarding old items listed on sale by someone, whether he/she wants or not. This often leads to the problem of filling of our mailbox and we may face problem while searching for other important e-mails.
+
+**Solution :** 
+
+This project is an attempt to solve the above problem by creating a pulic platform where users can list there old items on sale and the interested buyers can contact the seller directly. This will prevent our outlook inbox from being filled by unwanted e-mails and also organize the whole process of buying and selling of old items. 
+
 
 ## 🧩 Main Features
 * Home Page listing all items currently on sale.
