@@ -8,7 +8,7 @@
 > Campus OLX is an online platform that allows users to buy and sell old items within the campus.
 
 ## 📺 Live Demo
-This project is deployed on [Heroku](https://iitg-campus-olx.herokuapp.com/) or
+This project is deployed on [~~Heroku~~](https://iitg-campus-olx.herokuapp.com/) or
 Check out its Working Proof [here.](https://drive.google.com/file/d/1iIIowl7md2BPDr3LZegH_OXWRtx97-CZ/view?usp=sharing)
 
 ## 🕵️‍♀️ About the Project
